@@ -105,11 +105,16 @@ class Game extends React.Component {
     });
   }
 
-  jumpTo(step) {
+  jumpTo(e, step) {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0,
     });
+
+    const buttons = document.querySelectorAll("li button");
+    buttons.forEach((button) => button.classList.remove("active"));
+
+    e.target.classList.add("active");
   }
 
   render() {
@@ -122,7 +127,7 @@ class Game extends React.Component {
         : "Go to game start";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button onClick={(e) => this.jumpTo(e, move)}>{desc}</button>
         </li>
       );
     });

@@ -48,3 +48,8 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+
+.active {
+  background-color: #4285f4;
+  color: #fff;
+}
